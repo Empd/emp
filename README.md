@@ -30,7 +30,7 @@ emp's shell up by typing:
     ./startemp.sh
 
 This will start everything up as long as no errors appear! This is the erlang
-virual machine shell, but it automatically starts EMP when its run. You will
+virual machine shell, but it automatically starts EMP when it's run. You will
 be able to run testing functions from here.
 
 If you are familiar with Erlangs Observer program, feel free to start it up 

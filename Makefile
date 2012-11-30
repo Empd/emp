@@ -4,7 +4,7 @@
 
 
 ERL=$(shell which erl)
-ERLFLAGS= -pa ./apps/*/ebin -pa ./deps/*/ebin -pa ./plugins/ebin
+ERLFLAGS= -pa ./ebin -pa ./deps/*/ebin -pa ./plugins/ebin
 EMPFLAG= "-eval 'emp:start().'"
 DEPSOLVER_PLT=$(CURDIR)/.depsolver_plt
 REBAR=$(CURDIR)/bin/rebar
@@ -52,10 +52,10 @@ $(DEPSOLVER_PLT):
 	         --apps erts kernel stdlib crypto public_key sasl -r deps
 
 dialyzer: $(DEPSOLVER_PLT)
-	dialyzer --plt $(DEPSOLVER_PLT) -Wrace_conditions --src src
+	dialyzer --plt $(DEPSOLVER_PLT) -Wrace_conditions --src lib
 
 typer: $(DEPSOLVER_PLT)
-	typer --plt $(DEPSOLVER_PLT) -r ./src
+	typer --plt $(DEPSOLVER_PLT) -r ./lib
 
 ##CLEANING
 clean:
