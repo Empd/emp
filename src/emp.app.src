@@ -3,8 +3,7 @@
   {description, "Extensible Monitoring Platform"},
   {vsn, "1.0"},
   {registered, [empd, empdb, emplog]}, %TODO: missing some from db and empd
-  {included_applications, 
-        [empd, empdb, emplog, emp_tcpi]},
+  {included_applications, [] },
   {applications, [kernel, stdlib]},
   {mod, {emp, []}},
   {env, []}

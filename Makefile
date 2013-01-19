@@ -4,7 +4,7 @@
 
 
 ERL=$(shell which erl)
-ERLFLAGS= -pa ./ebin -pa ./deps/*/ebin -pa ./plugins/ebin
+ERLFLAGS= -pa ./ebin -pa ./deps/*/ebin #-pa ./plugins/ebin
 EMPFLAG= "-eval 'emp:start().'"
 DEPSOLVER_PLT=$(CURDIR)/.depsolver_plt
 REBAR=$(CURDIR)/bin/rebar
@@ -61,6 +61,7 @@ typer: $(DEPSOLVER_PLT)
 clean:
 	$(REBAR) clean
 	-rm startemp.sh
+	-rm loaderl.sh
 
 distclean: clean
 	$(REBAR) delete-deps

@@ -51,6 +51,12 @@ start_link( _StartArgs ) ->
 %% @private
 %% @doc Initialize the logging system, the database, and the daemon.
 init([]) ->
+	%% Load the applications into the vm
+	ok = application:load(emplog),
+	ok = application:load(empdb),
+	ok = application:load(empd),
+	
+	%% Grab their default arguments.
     {ok, {emplog_app, Emplog_args}} = application:get_key(emplog, mod),  
     {ok, {empdb_app, Empdb_args}} = application:get_key(empdb, mod),
     {ok, {empd_app, Empd_args}} = application:get_key(empd, mod),
